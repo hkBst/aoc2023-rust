@@ -36,10 +36,10 @@ pub fn print_ascii_board(board: ArrayView2<u8>) {
 pub fn print_board<T>(board: ArrayView2<T>)
     where T: std::fmt::Display
 {
-    let widest_number = board.iter().map(|x| format!("{x:.}").len()).max().unwrap();
+    let widest_number = board.iter().map(|x| format!("{x}").len()).max().unwrap();
     for row in board.rows() {
         for element in row {
-            print!("{: >width$.}", element, width = (widest_number+1));
+            print!("{: >width$}", element, width = (widest_number+1));
         }
         println!()
     }
